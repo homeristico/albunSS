@@ -308,18 +308,18 @@ export class HomePage {
     {id:178,name:178,cantidad:0},
     {id:179,name:179,cantidad:0},
     {id:180,name:180,cantidad:0},
-    {id:181,name:181,cantidad:0},
-    {id:182,name:182,cantidad:0},
-    {id:183,name:183,cantidad:0},
-    {id:184,name:184,cantidad:0},
-    {id:185,name:185,cantidad:0},
-    {id:186,name:186,cantidad:0},
-    {id:187,name:187,cantidad:0},
-    {id:188,name:188,cantidad:0},
-    {id:189,name:189,cantidad:0},
-    {id:190,name:190,cantidad:0},
-    {id:191,name:191,cantidad:0},
-    {id:192,name:192,cantidad:0}    
+    {id:'A',name:'A',cantidad:0},
+    {id:'B',name:'B',cantidad:0},
+    {id:'C',name:'C',cantidad:0},
+    {id:'D',name:'D',cantidad:0},
+    {id:'E',name:'E',cantidad:0},
+    {id:'F',name:'F',cantidad:0},
+    {id:'G',name:'G',cantidad:0},
+    {id:'H',name:'H',cantidad:0},
+    {id:'I',name:'I',cantidad:0},
+    {id:'J',name:'J',cantidad:0},
+    {id:'K',name:'K',cantidad:0},
+    {id:'L',name:'L',cantidad:0}    
   ];
 
 }
