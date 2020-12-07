@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
-import { ModalController } from '@ionic/angular';
+import { IonInfiniteScroll,ModalController,AlertController,ToastController } from '@ionic/angular';
+
 
 import { ModalPage } from './../modal/modal.page';
 
@@ -15,10 +15,54 @@ export class HomePage {
   editar:boolean = false;  
   fichas = [];  
 
-  constructor(private _modal:ModalController){
+  constructor(private _modal:ModalController, private _alert:AlertController,
+              private _toast:ToastController){
     this.cargarFichas(12);
   }
- 
+
+  async alerta(){
+    const alert = await this._alert.create({
+      cssClass: 'my-custom-class',
+      header: 'Armar',
+      message: 'Confirma armar juego?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            const confirm = this.comprobarCantidad();
+            console.log('Confirm Okay', confirm);
+            if(confirm) this.armar();             
+          }
+        }
+      ]
+    });
+    await alert.present();
+  } 
+
+  armar(){    
+    const fichas = JSON.parse(localStorage.getItem('fichas'));
+    fichas.map(item => item.cantidad ? item.cantidad-- : item.cantidad);      
+    this.fichas = fichas;
+    localStorage.setItem('fichas',JSON.stringify(this.fichas));  
+  }
+
+  comprobarCantidad(){
+    const fichas = JSON.parse(localStorage.getItem('fichas'));
+    for(let element of fichas){
+      if(element.cantidad === 0){
+        this.fichasInsuficientes();
+        return false;
+      }
+    }
+    return true;
+  }
 
   cargarFichas(num){     
     this.inicio = num;
@@ -38,6 +82,15 @@ export class HomePage {
     }    
    }
 
+   async fichasInsuficientes(){
+    const toast = await this._toast.create({
+      message: 'Fichas insuficientes',
+      position: 'middle',
+      duration: 2000
+    });
+    await toast.present();
+   }
+
    ionViewWillEnter(){
     this.cargarFichas(12);
   }
@@ -52,7 +105,7 @@ export class HomePage {
       this.cargarFichas(this.inicio+12);
       // App logic to determine if all data is loaded
       // and disable the infinite scroll
-      if (this.fichas.length >= 191) {
+      if(this.fichas.length >= 191) {
         event.target.disabled = true;
       }
     }, 500);

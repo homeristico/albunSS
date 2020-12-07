@@ -23,8 +23,7 @@ export class ModalPage implements OnInit {
     });
   }
 
-  masFicha(id){
-    console.log(id)        
+  masFicha(id){           
     this.ficha.cantidad++;
     let fichas = JSON.parse(localStorage.getItem('fichas'));
     fichas.map(ficha => ficha.id === id ? ficha.cantidad++ : ficha.cantidad);        

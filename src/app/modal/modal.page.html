@@ -1,19 +1,20 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Cantidad</ion-title>
+  <ion-toolbar>    
     <ion-buttons slot="start">
-      <ion-back-button (click)="dismiss()" defaultHref=""></ion-back-button>
-     </ion-buttons>
-  </ion-toolbar>
+      <ion-back-button (click)="dismiss()" defaultHref=""></ion-back-button>      
+      <ion-title>Cantidad</ion-title>      
+      <ion-img horizontal="end" src="./../../assets/img/saint seiya.png" alt=""></ion-img>
+     </ion-buttons>     
+  </ion-toolbar>  
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">    
   <!-- <img src="https://previews.dropbox.com/p/thumb/ABA-ftYHCNGnBqvfHsmE0cM8Au3oKpr34CKMeEDWcTZqqyP3UMc9gFT0ZTra10f9U_wIWQfR4Bn0opw_gDkYJi9C_HziZC_NigLwjsHicRtEuGGYea62X79NmMuz5_r-3yzh26X-1M4nHIm3TsR-jdJw3s_ZDrqpAF4_3vxthaTjmj2-iJBiwDyf-y6x3i05kbKYkigANgEBSAYsgfYQMZvwOrYjnttNZk_4l069nnJZaQaAYumbc8FvV6mKNNurLD41SzOWkBbFxvY-XnZM2FeJkfyUX574fz4USJJNOBsmHKLDTu0DXtwIRkPb8vqKWovqvDafptcmSreHTUcqqOZS/p.png?fv_content=true&size_mode=5" alt=""> -->
   <ion-grid >
     <ion-row>
       <ion-col>
-        <ion-icon (click)="masFicha(ficha.id)" class="mas" name="add-circle-outline"></ion-icon>
         <ion-icon (click)="menosFicha(ficha)" class="menos" name="remove-circle-outline"></ion-icon>
+        <ion-icon (click)="masFicha(ficha.id)" class="mas" name="add-circle-outline"></ion-icon>        
       </ion-col>      
     </ion-row>
     <ion-row>

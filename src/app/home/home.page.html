@@ -1,18 +1,26 @@
 <ion-header class="imga" [translucent]="true">
-  <img src="./../../assets/img/saint seiya.png" alt=""> 
+  <img style="margin-left: 10px;" src="./../../assets/img/saint seiya.png" alt="">    
 </ion-header>
 
-<ion-content [fullscreen]="true">  
+<ion-content [fullscreen]="true" color="dark">    
+
+  <!-- BOTON FLOTANTE -->
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button (click)="alerta()" style="height: 30px; width: 30px; margin-top: 8px;" color="medium">
+      <ion-icon name="albums-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> 
+  <!-- FIN BOTON  -->
+
   <ion-row>  
     <!-- Plano -->      
         <ion-col size="4"  class="Ptamano" *ngFor="let ficha of fichas">
-          <ion-card [ngClass]="{si: ficha.cantidad>0}" (click)="mostrarEditarModals(ficha)">            
+          <ion-card [ngClass]="{si: ficha.cantidad>0}" (click)="mostrarEditarModals(ficha)">
             <ion-card-header class="Pforma">
              <span [ngClass]="{ssi: ficha.cantidad>0}">{{ficha.name}}</span><span  [ngClass]="{ssi: ficha.cantidad>0}" class="peque">x{{ficha.cantidad}}</span>
             </ion-card-header>
            </ion-card>  
-        </ion-col>
-      
+        </ion-col>      
     <!-- Fin Plano -->    
   </ion-row>  
 
